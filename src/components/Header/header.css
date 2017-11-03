@@ -1,0 +1,17 @@
+.header-main {
+    height: 75px;
+    width: 100%;
+    background: grey;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.header-button-enabled {
+
+}
+.header-button-disabled {
+    display: none;
+}
+.header-title {
+    font-size: 2em;
+}

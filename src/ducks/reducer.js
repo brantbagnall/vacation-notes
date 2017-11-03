@@ -1,5 +1,6 @@
 const initialState ={
-    test1: 'Hello, this is a test!'
+    test1: 'Hello, this is a test!',
+    logged: false
 }
 
 const CHANGE_TEST = 'CHANGE_TEST';

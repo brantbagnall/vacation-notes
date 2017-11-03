@@ -1,0 +1,17 @@
+.search-center{
+    display: flex;
+    justify-content: center;
+}
+.search-filter {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.search-centered {
+    width: 75%;
+    height: 600px;
+    background: orange;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

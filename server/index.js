@@ -15,6 +15,38 @@ app.use(bodyParser.json());
 
 app.use(express.static('build'));
 
+app.use(session({
+    secret: process.env.PASS_SECRET,
+    resave: false,
+    saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
+
+passport.use(new Auth0Strategy({
+    domain: process.env.AUTH_DOMAIN,
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: process.env.CALLBACK
+}, function (acessToken, refreshToken, extraParams, profile, done){
+    //redo for database
+    done(null, profile);
+}))
+passport.serializeUser(function(profile, done){
+    //redo for database
+    done(null, profile);
+})
+passport.deserializeUser(function(profile, done){
+    //redo for database
+    done(null, profile);
+})
+
+app.get('/auth0', passport.authenticate('auth0'));
+
+app.get('/auth0/callback', passport.authenticate('auth0', {
+    successRedirect: '/#/',
+    failureRedirect: '/auth'
+}))
 
 app.listen(port, ()=> console.log('Listening on port: ' + port));

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import suitcase from '../../assets/suitcase.png'
 import './header.css';
 
 class Header extends Component {
     render(props) {
         return (
             <div className='header-main' >
-                <div>
-                    Logo
+                <div className='header-pointer header-img-width' >
+                    <img onClick={()=> {}} className='header-img' src={suitcase} alt='Site Logo' />
                 </div>
                 <div className='header-title' >
                     {this.props.header}

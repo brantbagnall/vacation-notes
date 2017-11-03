@@ -7,11 +7,21 @@
     align-items: center;
 }
 .header-button-enabled {
-
+color: black;
 }
 .header-button-disabled {
     display: none;
 }
 .header-title {
     font-size: 2em;
+}
+.header-img {
+    height: 100%;
+    width: 100%;
+}
+.header-pointer :hover {
+    cursor: pointer;
+}
+.header-img-width {
+    width: 50px;
 }

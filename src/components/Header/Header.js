@@ -14,9 +14,9 @@ class Header extends Component {
                     {this.props.header}
                 </div>
                 <div>
-                    <button className={this.props.logged ? 'header-button-disabled': 'header-button-enabled'} >
+                    <a href='http://localhost:3005/auth0'><button className={this.props.logged ? 'header-button-disabled': 'header-button-enabled'} >
                         Login
-                    </button>
+                    </button></a>
                     <button className={this.props.logged ? 'header-button-enabled': 'header-button-disabled'} >
                         Profile
                     </button>

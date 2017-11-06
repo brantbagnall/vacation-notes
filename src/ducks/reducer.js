@@ -1,24 +1,28 @@
+import axios from 'axios';
+
 const initialState ={
-    test1: 'Hello, this is a test!',
+    profile: {},
     logged: false
 }
 
-const CHANGE_TEST = 'CHANGE_TEST';
+const GET_PROFILE = 'GET_PROFILE';
+
+export function getProfile(){
+    const profile = axios.get('/auth/profile').then( res => res.data);
+    return {
+        type: GET_PROFILE,
+        payload: profile
+    }
+}
 
 export default function reducer (state = initialState, action){
     switch (action.type) {
-        case CHANGE_TEST:
+        case GET_PROFILE + '_FULFILLED':
             
-            return Object.assign({}, state, {test1: action.payload});
+            return Object.assign({}, state, {profile: action.payload});
     
         default:
 
             return state;
-    }
-}
-export function changeTest (test1) {
-    return {
-        type: CHANGE_TEST,
-        payload: test1
     }
 }

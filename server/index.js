@@ -5,6 +5,7 @@ const express = require('express'),
     passport = require('passport'),
     Auth0Strategy = require('passport-auth0'),
     massive = require('massive'),
+    ctrl = require('./middleware/middleware.js'),
     port = 3005;
 
 
@@ -34,13 +35,11 @@ passport.use(new Auth0Strategy({
     clientSecret: process.env.CLIENT_SECRET,
     callbackURL: process.env.CALLBACK
 }, function (acessToken, refreshToken, extraParams, profile, done){
-    //redo for database
     const db = app.get('db');
     db.find_user([profile._json.identities[0].user_id]).then(user => {
         if(user[0]){
             return done(null, user[0].user_id);
         } else {
-            // db.create_user([])
             db.create_user([profile._json.given_name, profile._json.family_name, profile._json.email, profile._json.picture, profile._json.identities[0].user_id]).then( user => {
                 return done(null, user[0].user_id);
             });
@@ -49,20 +48,20 @@ passport.use(new Auth0Strategy({
     
 }))
 passport.serializeUser(function(id, done){
-    //redo for database
     done(null, id);
 })
 passport.deserializeUser(function(id, done){
-    //redo for database
     app.get('db').find_session_user([id]).then( user => {
         done(null, user[0]);
     });
 })
 
+app.get('/auth/profile', ctrl.authProfile)
+
 app.get('/auth0', passport.authenticate('auth0'));
 
 app.get('/auth0/callback', passport.authenticate('auth0', {
-    successRedirect: '/#/',
+    successRedirect: '/#/profile',
     failureRedirect: '/auth0'
 }))
 

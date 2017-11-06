@@ -22,6 +22,10 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+massive(process.env.MASSIVE_STRING).then((db)=>{
+    // console.log(db);
+    app.set('db', db);
+});
 
 
 passport.use(new Auth0Strategy({

@@ -5,6 +5,7 @@ import Search from './components/Search/Search.js';
 import Profile from './components/Profile/Profile.js';
 import Post from './components/Post/Post.js';
 import Journal from './components/Journal/Journal.js';
+import EditProfile from './components/EditProfile/EditProfile.js';
 import './reset.css';
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
           <Route path='/profile' component={Profile} />
           <Route path='/journal' component={Post} />
           <Route path='/newjournal' component={Journal} />
+          <Route path='/editprofile' component={EditProfile} />
         </div>
       </HashRouter>
     );

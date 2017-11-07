@@ -1,0 +1,35 @@
+.profile-centered{
+    display: flex;
+    width: 50%;
+    height: 375px;
+    background: orange;
+}
+.profile-flex-center{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.profile-center-buddies{
+    width: 50%;
+    height: 100%;
+}
+.profile-center-left{
+    background: green;
+    display: flex;
+    flex-direction: column;
+}
+.profile-center-right{
+    background: peru;
+}
+.profile-picture{
+    max-height: 200px;
+    max-width: 200px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+.profile-text{
+    margin-left: 50px;
+}
+.profile-individual-text{
+    margin-top: 10px;
+}

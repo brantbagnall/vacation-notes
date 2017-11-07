@@ -14,15 +14,15 @@ class Header extends Component {
                     {this.props.header}
                 </div>
                 <div>
-                    <a href='http://localhost:3005/auth0'><button className={this.props.logged ? 'header-button-disabled': 'header-button-enabled'} >
+                    <a href={process.env.REACT_APP_LOGIN ? process.env.REACT_APP_LOGIN : 'http://localhost:3005/login' }><button className={this.props.profile.user_id ? 'header-button-disabled': 'header-button-enabled'} >
                         Login
                     </button></a>
-                    <button className={this.props.logged ? 'header-button-enabled': 'header-button-disabled'} >
+                    <button className={this.props.profile.user_id ? 'header-button-enabled': 'header-button-disabled'} >
                         Profile
                     </button>
-                    <button className={this.props.logged ? 'header-button-enabled': 'header-button-disabled'} >
+                    <a href={process.env.REACT_APP_LOGOUT ? process.env.REACT_APP_LOGOUT : 'http://localhost:3005/logout'} ><button className={this.props.profile.user_id ? 'header-button-enabled': 'header-button-disabled'} >
                         Logout
-                    </button>
+                    </button></a>
                 </div>
             </div>
         )
@@ -31,7 +31,7 @@ class Header extends Component {
 
 function mapStateToProps (state) {
     return {
-        logged: state.logged
+        profile: state.profile
     }
 }
 

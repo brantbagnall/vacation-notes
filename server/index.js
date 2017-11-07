@@ -40,7 +40,7 @@ passport.use(new Auth0Strategy({
         if(user[0]){
             return done(null, user[0].user_id);
         } else {
-            db.create_user([profile._json.given_name, profile._json.family_name, profile._json.email, profile._json.picture, profile._json.identities[0].user_id]).then( user => {
+            db.create_user([profile._json.given_name, profile._json.family_name, profile._json.email, profile._json.picture, profile._json.identities[0].user_id, profile._json.given_name]).then( user => {
                 return done(null, user[0].user_id);
             });
         }
@@ -64,5 +64,9 @@ app.get('/auth0/callback', passport.authenticate('auth0', {
     successRedirect: '/#/profile',
     failureRedirect: '/auth0'
 }))
+
+app.get('/logout', ctrl.logOut);
+
+app.put('/api/editprofile', ctrl.editProfile)
 
 app.listen(port, ()=> console.log('Listening on port: ' + port));

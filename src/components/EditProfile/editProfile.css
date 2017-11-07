@@ -1,0 +1,35 @@
+.editprofile-centered{
+    display: flex;
+    width: 50%;
+    height: 375px;
+    background: orange;
+}
+.editprofile-flex-center{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.editprofile-center-buddies{
+    width: 50%;
+    height: 100%;
+}
+.editprofile-center-left{
+    background: green;
+    display: flex;
+    flex-direction: column;
+}
+.editprofile-center-right{
+    background: peru;
+}
+.editprofile-picture{
+    max-height: 200px;
+    max-width: 200px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+.editprofile-text{
+    margin-left: 50px;
+}
+.editprofile-individual-text{
+    margin-top: 10px;
+}

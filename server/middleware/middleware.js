@@ -5,5 +5,12 @@ module.exports= {
         } else {
             return res.status(401).send('Need to log in.');
         }
+    },
+    logOut: function (req, res) {
+        req.logOut();
+        res.redirect('/#/')
+    },
+    editProfile: function (req, res){
+        req.app.get('db').edit_user([req.body.id, req.body.userName]);
     }
 }

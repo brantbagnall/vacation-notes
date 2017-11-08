@@ -1,0 +1,17 @@
+.post-centerer{
+    display: flex;
+    justify-content: center;
+}
+.post-centered{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: orange;
+    width: 50%;
+    height: 600px;
+}
+.post-textarea{
+    height: 300px;
+    width: 500px;
+    resize: none;
+}

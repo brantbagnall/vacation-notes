@@ -3,7 +3,7 @@ module.exports= {
         if(req.user) {
             return res.status(200).send(req.user);
         } else {
-            return res.status(401).send('Need to log in.');
+            return res.status(401).send('You need to log in.');
         }
     },
     logOut: function (req, res) {
@@ -11,6 +11,19 @@ module.exports= {
         res.redirect('/#/')
     },
     editProfile: function (req, res){
-        req.app.get('db').edit_user([req.body.id, req.body.userName]);
+        if(req.user){
+            return req.app.get('db').edit_user([req.body.id, req.body.userName]).then(()=> res.status(200).redirect('/#/profile'));
+        } else {
+            return res.status(401).send('You need to log in.');
+        }
+    },
+    postJournal: function (req, res) {
+        if (req.user) {
+            return req.app.get('db').post_journal([req.body.user_id, req.body.post_content, 0, req.body.post_activity, req.body.post_pal, req.body.post_env, req.body.post_time, req.body.post_website, req.body.post_lat, req.body.post_long, Date.now(), req.body.post_name]).then((post)=> {
+                
+            })
+        } else {
+            return res.status(401).send('You need to log in.');
+        }
     }
 }

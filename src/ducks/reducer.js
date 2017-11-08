@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 const initialState ={
-    profile: {},
-    logged: false
+    profile: {}
 }
 
 const GET_PROFILE = 'GET_PROFILE';

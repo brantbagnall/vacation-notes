@@ -6,7 +6,7 @@ class Journal extends Component {
     render() {
         return (
             <div>
-                <Header header='New Journal' />
+                <Header header='Journal' />
                 <div>
                     <div>
                         

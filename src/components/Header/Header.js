@@ -8,13 +8,13 @@ class Header extends Component {
         return (
             <div className='header-main' >
                 <div className='header-pointer header-img-width' >
-                    <img onClick={()=> {}} className='header-img' src={suitcase} alt='Site Logo' />
+                    <a href='/#/' ><img onClick={()=> {}} className='header-img' src={suitcase} alt='Site Logo' /></a>
                 </div>
                 <div className='header-title' >
                     {this.props.header}
                 </div>
                 <div>
-                    <a href={process.env.REACT_APP_LOGIN ? process.env.REACT_APP_LOGIN : 'http://localhost:3005/login' }><button className={this.props.profile.user_id ? 'header-button-disabled': 'header-button-enabled'} >
+                    <a href={process.env.REACT_APP_LOGIN ? process.env.REACT_APP_LOGIN : 'http://localhost:3005/auth0' }><button className={this.props.profile.user_id ? 'header-button-disabled': 'header-button-enabled'} >
                         Login
                     </button></a>
                     <button className={this.props.profile.user_id ? 'header-button-enabled': 'header-button-disabled'} >

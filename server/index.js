@@ -67,6 +67,8 @@ app.get('/auth0/callback', passport.authenticate('auth0', {
 
 app.get('/logout', ctrl.logOut);
 
-app.put('/api/editprofile', ctrl.editProfile)
+app.put('/api/editprofile', ctrl.editProfile);
 
-app.listen(port, ()=> console.log('Listening on port: ' + port));
+app.post('/api/postjournal', ctrl.postJournal)
+
+app.listen(port, ()=> console.log('Listening on port: ' + port + ' Unix Time: ' + Date.now()));

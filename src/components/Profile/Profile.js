@@ -42,7 +42,7 @@ class Profile extends Component {
                         </div>
                     </div>
                     <div>
-                        
+                        This is where your posts would go
                     </div>
                 </div>
             </div>

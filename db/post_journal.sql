@@ -1,0 +1,1 @@
+insert into posts (user_id, post_content, post_likes, post_activity, post_pal, post_env, post_time, post_website, post_lat, post_long, post_unix_time, post_name) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12);

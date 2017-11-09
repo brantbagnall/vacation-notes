@@ -67,8 +67,20 @@ app.get('/auth0/callback', passport.authenticate('auth0', {
 
 app.get('/logout', ctrl.logOut);
 
-app.put('/api/editprofile', ctrl.editProfile);
+app.put('/editprofile', ctrl.editProfile);
 
 app.post('/api/postjournal', ctrl.postJournal)
+
+
+
+
+
+
+
+
+const path = require('path')
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 app.listen(port, ()=> console.log('Listening on port: ' + port + ' Unix Time: ' + Date.now()));

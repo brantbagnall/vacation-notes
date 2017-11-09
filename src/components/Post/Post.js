@@ -7,7 +7,8 @@ import './post.css';
 class Post extends Component {
 
     submitJournal(){
-        axios.post('/api/postjournal', {post_name: this.refs.name, post_activity: this.refs.aType, post_pal: this.refs.pal, post_env: this.refs.eType, post_content: this.refs.journalcontent, user_id: this.props.profile.user_id, post_website: this.refs.web, post_time: this.refs.time, post_lat: 0.0, post_long: 0.0 })
+        console.log(this.refs.name.value);
+        axios.post('/api/postjournal', {post_name: this.refs.name.value, post_activity: this.refs.aType.value, post_pal: this.refs.pal.value, post_env: this.refs.eType.value, post_content: this.refs.journalContent.value, user_id: this.props.profile.user_id, post_website: this.refs.web.value, post_time: this.refs.time.value, post_lat: 0.0, post_long: 0.0 }).then(()=> this.props.history.push('/profile'))
     }
 
     render() {
@@ -21,7 +22,25 @@ class Post extends Component {
                         </p>
                         <p>
                             Activity Type: <select ref='aType' >
-                                <option>Test</option>
+                                <option>None</option>
+                                <option>Academic</option>
+                                <option>Art</option>
+                                <option>Cultural</option>
+                                <option>Community</option>
+                                <option>Government</option>
+                                <option>Leadership</option>
+                                <option>Media</option>
+                                <option>Military</option>
+                                <option>Music</option>
+                                <option>Religious</option>
+                                <option>Roleplaying/Fantasy</option>
+                                <option>Social Activism</option>
+                                <option>Special Interest</option>
+                                <option>Political</option>
+                                <option>Recreation</option>
+                                <option>Technology</option>
+                                <option>Travel</option>
+                                <option>Volunteer</option>
                             </select>
                             Physical Activity Level: <select ref='pal' >
                                 <option>Low</option>

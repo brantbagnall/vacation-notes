@@ -17,7 +17,7 @@ class App extends Component {
           <Route path='/search' component={Search} />
           <Route path='/profile' component={Profile} />
           <Route path='/newjournal' component={Post} />
-          <Route path='/journal' component={Journal} />
+          <Route path='/journal/:id' component={Journal} />
           <Route path='/editprofile' component={EditProfile} />
         </div>
       </HashRouter>

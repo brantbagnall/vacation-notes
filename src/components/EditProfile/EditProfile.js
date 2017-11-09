@@ -17,7 +17,7 @@ class EditProfile extends Component {
         } else {
             editUName = this.props.profile.user_name;
         }
-        axios.put('/api/editprofile', {userName:editUName, id: this.props.profile.user_id})
+        axios.put('/editprofile', {userName:editUName, id: this.props.profile.user_id}).then(()=> this.props.history.push('/profile'));
     }
 
     render() {

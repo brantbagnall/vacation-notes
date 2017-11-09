@@ -41,8 +41,8 @@ class Profile extends Component {
                             test2
                         </div>
                     </div>
-                    <div>
-                        This is where your posts would go
+                    <div className='profile-recent-journals' >
+                        
                     </div>
                 </div>
             </div>

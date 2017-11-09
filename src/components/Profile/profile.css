@@ -33,3 +33,8 @@
 .profile-individual-text{
     margin-top: 10px;
 }
+.profile-recent-journals{
+    width: 50%;
+    height: 600px;
+    background: lightblue;
+}

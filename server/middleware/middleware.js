@@ -24,9 +24,7 @@ module.exports= {
         if (req.user) {
             return req.app.get('db').post_journal([req.body.user_id, req.body.post_content, 0, req.body.post_activity, req.body.post_pal, req.body.post_env, req.body.post_time, req.body.post_website, req.body.post_lat, req.body.post_long, Date.now(), req.body.post_name]).then((id)=> {
                 console.log(id[0].post_id);
-                var red = '/#/journal/' + id[0].post_id;
-                console.log(red);
-                res.status(200).redirect(red);
+                res.status(200).send(`${id[0].post_id}`);
             })
         } else {
             return res.status(401).send('You need to log in.');

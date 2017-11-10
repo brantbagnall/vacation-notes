@@ -13,7 +13,7 @@ class Profile extends Component {
     }
 
     render() {
-            console.log(this.props.best[0])
+            // console.log(this.props.best[0]);
             // console.log(this.props.recent[0]);
             var bestJournal = this.props.best.map(e => {
                 return (

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {getProfile} from '../../ducks/reducer.js';
+import {getProfile, getRecent} from '../../ducks/reducer.js';
 import Header from '../Header/Header.js';
 import './profile.css';
 
@@ -8,9 +8,23 @@ class Profile extends Component {
 
     componentDidMount(){
         this.props.getProfile();
+        this.props.getRecent();
+        // this.props.getBest();
     }
 
     render() {
+            console.log(this.props.recent[0]);
+            var recentJournals = this.props.recent.map(e => {
+                return (
+                    <div key={e.post_id} className='profile-journals-recent' >
+                        <p>{e.post_name}</p>
+                        <p>{e.post_content}</p>
+                        <p>{}</p>
+                        <p>{}</p>
+                        <p>{}</p>
+                    </div>
+                )
+            })
         return (
             <div>
                 <Header header='Profile' />
@@ -41,8 +55,8 @@ class Profile extends Component {
                             test2
                         </div>
                     </div>
-                    <div className='profile-recent-journals' >
-                        
+                    <div className='profile-all-recent' >
+                        {recentJournals}
                     </div>
                 </div>
             </div>
@@ -53,8 +67,9 @@ class Profile extends Component {
 
 function mapStateToProps(state){
     return {
-        profile: state.profile
+        profile: state.profile,
+        recent: state.recent_journal
     };
 }
 
-export default connect(mapStateToProps, {getProfile})(Profile);
+export default connect(mapStateToProps, {getProfile, getRecent})(Profile);

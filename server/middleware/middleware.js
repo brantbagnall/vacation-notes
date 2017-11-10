@@ -29,5 +29,11 @@ module.exports= {
         } else {
             return res.status(401).send('You need to log in.');
         }
+    },
+    find_recent: function(req, res){
+        console.log(req.user);
+        return req.app.get('db').find_most_recent([req.user.user_id]).then((posts)=>{
+            res.status(200).send(posts);
+        })
     }
 }

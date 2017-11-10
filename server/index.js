@@ -71,7 +71,7 @@ app.put('/editprofile', ctrl.editProfile);
 
 app.post('/api/postjournal', ctrl.postJournal)
 
-
+app.get('/api/findrecent', ctrl.find_recent)
 
 
 

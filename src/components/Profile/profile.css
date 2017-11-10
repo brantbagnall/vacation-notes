@@ -33,8 +33,20 @@
 .profile-individual-text{
     margin-top: 10px;
 }
-.profile-recent-journals{
+.profile-all-recent{
+    display: flex;
     width: 50%;
     height: 600px;
     background: lightblue;
+    overflow-y: scroll;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.profile-journals-recent{
+    display: flex;
+    height: 300px;
+    width: 50%;
+    flex-direction: column;
+    background: red;
 }

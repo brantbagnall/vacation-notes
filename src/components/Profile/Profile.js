@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {getProfile, getRecent} from '../../ducks/reducer.js';
+import {getProfile, getRecent, getBest} from '../../ducks/reducer.js';
 import Header from '../Header/Header.js';
 import './profile.css';
 
@@ -9,11 +9,38 @@ class Profile extends Component {
     componentDidMount(){
         this.props.getProfile();
         this.props.getRecent();
-        // this.props.getBest();
+        this.props.getBest();
     }
 
     render() {
-            console.log(this.props.recent[0]);
+            console.log(this.props.best[0])
+            // console.log(this.props.recent[0]);
+            var bestJournal = this.props.best.map(e => {
+                return (
+                    <div key={e.post_id} className='profile-journals-best' >
+                        <div className='profile-journal-header' >
+                            <img src={e.profile_img} alt={`${e.user_name}'s profile art`} className='profile-profile-img' />
+                            <div>
+                                <p>Username: {e.user_name}</p>
+                                <p>Journal name: <a href={`/#/journal/${e.post_id}`} >{e.post_name}</a></p>
+                                <div>
+                                    <p>Activity: {e.post_activity}</p>
+                                    <p>Environment: {e.post_env}</p>
+                                    <p>Activity level: {e.post_pal}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Website Link: <a href={e.post_website} >{e.post_website}</a></p>
+                        </div>
+                        <div className='profile-journal-content' >
+                            <p>
+                                {e.post_content}
+                            </p>
+                        </div>
+                    </div>
+                )
+            })
             var recentJournals = this.props.recent.map(e => {
                 return (
                     <div key={e.post_id} className='profile-journals-recent' >
@@ -67,7 +94,7 @@ class Profile extends Component {
                             </div>
                         </div>
                         <div className='profile-center-buddies profile-center-right' >
-                            test2
+                            {bestJournal}
                         </div>
                     </div>
                     <div className='profile-all-recent' >
@@ -83,8 +110,9 @@ class Profile extends Component {
 function mapStateToProps(state){
     return {
         profile: state.profile,
-        recent: state.recent_journal
+        recent: state.recent_journal,
+        best: state.bestJournal
     };
 }
 
-export default connect(mapStateToProps, {getProfile, getRecent})(Profile);
+export default connect(mapStateToProps, {getProfile, getRecent, getBest})(Profile);

@@ -20,6 +20,9 @@ class Header extends Component {
                     <button className={this.props.profile.user_id ? 'header-button-enabled': 'header-button-disabled'} >
                         Profile
                     </button>
+                    <a href={process.env.REACT_APP_NEW_JOURNAL ? process.env.REACT_APP_NEW_JOURNAL : 'http://localhost:3005/#/newjournal'} ><button className={this.props.profile.user_id ? 'header-button-enabled': 'header-button-disabled'} >
+                        New Journal
+                    </button></a>
                     <a href={process.env.REACT_APP_LOGOUT ? process.env.REACT_APP_LOGOUT : 'http://localhost:3005/logout'} ><button className={this.props.profile.user_id ? 'header-button-enabled': 'header-button-disabled'} >
                         Logout
                     </button></a>

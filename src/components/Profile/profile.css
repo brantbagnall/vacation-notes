@@ -66,3 +66,10 @@
     height: 150px;
     margin-top: 10px;
 }
+.profile-journals-best{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    background: red;
+}

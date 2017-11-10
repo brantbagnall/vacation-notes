@@ -73,6 +73,8 @@ app.post('/api/postjournal', ctrl.postJournal)
 
 app.get('/api/findrecent', ctrl.find_recent)
 
+app.get('/api/findbest', ctrl.find_best)
+
 
 
 

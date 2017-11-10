@@ -36,6 +36,17 @@ module.exports= {
             return req.app.get('db').find_most_recent([req.user.user_id]).then((posts)=>{
                 res.status(200).send(posts);
             })
+        } else {
+            return res.status(401).send('You need to log in.');
+        }
+    },
+    find_best: function(req, res){
+        if(req.user) {
+            return req.app.get('db').find_best_journal([req.user.user_id]).then((post)=>{
+                res.status(200).send(post);
+            })
+        } else {
+            return res.status(401).send('You need to log in.');
         }
     }
 }

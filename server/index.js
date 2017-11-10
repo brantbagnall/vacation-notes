@@ -69,11 +69,13 @@ app.get('/logout', ctrl.logOut);
 
 app.put('/editprofile', ctrl.editProfile);
 
-app.post('/api/postjournal', ctrl.postJournal)
+app.post('/api/postjournal', ctrl.postJournal);
 
-app.get('/api/findrecent', ctrl.find_recent)
+app.get('/api/findrecent', ctrl.find_recent);
 
-app.get('/api/findbest', ctrl.find_best)
+app.get('/api/findbest', ctrl.find_best);
+
+app.get('/api/findjournal/:id', ctrl.findJournal)
 
 
 

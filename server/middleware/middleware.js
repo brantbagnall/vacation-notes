@@ -48,5 +48,14 @@ module.exports= {
         } else {
             return res.status(401).send('You need to log in.');
         }
+    },
+    findJournal: function(req,res){
+        if(req.user) {
+            return req.app.get('db').find_journal([req.params.id]).then((journal)=>{
+                res.status(200).send(journal);
+            })
+        } else {
+            return res.status(401).send('You need to log in.');
+        }
     }
 }

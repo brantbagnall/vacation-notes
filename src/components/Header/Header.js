@@ -4,7 +4,7 @@ import suitcase from '../../assets/suitcase.png'
 import './header.css';
 
 class Header extends Component {
-    render() {
+    render(props) {
         return (
             <div className='header-main' >
                 <div className='header-pointer header-img-width' >

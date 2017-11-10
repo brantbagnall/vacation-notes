@@ -3,12 +3,14 @@ import axios from 'axios';
 const initialState ={
     profile: {},
     recent_journal: [],
-    bestJournal: []
+    bestJournal: [],
+    journal: []
 }
 
 const GET_PROFILE = 'GET_PROFILE';
 const GET_RECENT = 'GET_RECENT';
 const GET_BEST = 'GET_BEST';
+const GET_JOURNAL = 'GET_JOURNAL';
 
 export function getProfile(){
     const profile = axios.get('/auth/profile').then( res => res.data);
@@ -34,6 +36,14 @@ export function getBest(){
     }
 }
 
+export function getJournal(id){
+    const journal = axios.get('/api/findjournal/' + id).then(res => res.data);
+    return {
+        type: GET_JOURNAL,
+        payload: journal
+    }
+}
+
 export default function reducer (state = initialState, action){
     switch (action.type) {
         case GET_PROFILE + '_FULFILLED':
@@ -47,6 +57,10 @@ export default function reducer (state = initialState, action){
         case GET_BEST + '_FULFILLED':
 
             return Object.assign({}, state, {bestJournal: action.payload});
+
+        case GET_JOURNAL + '_FULFILLED':
+
+            return Object.assign({}, state, {journal: action.payload});
     
         default:
 

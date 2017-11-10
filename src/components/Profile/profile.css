@@ -50,3 +50,19 @@
     flex-direction: column;
     background: red;
 }
+.profile-profile-img{
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+.profile-journal-header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.profile-journal-content{
+    overflow-y: auto;
+    width: 90%;
+    height: 150px;
+    margin-top: 10px;
+}

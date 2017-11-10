@@ -17,11 +17,26 @@ class Profile extends Component {
             var recentJournals = this.props.recent.map(e => {
                 return (
                     <div key={e.post_id} className='profile-journals-recent' >
-                        <p>{e.post_name}</p>
-                        <p>{e.post_content}</p>
-                        <p>{}</p>
-                        <p>{}</p>
-                        <p>{}</p>
+                        <div className='profile-journal-header' >
+                            <img src={e.profile_img} alt={`${e.user_name}'s profile art`} className='profile-profile-img' />
+                            <div>
+                                <p>Username: {e.user_name}</p>
+                                <p>Journal name: <a href={`/#/journal/${e.post_id}`} >{e.post_name}</a></p>
+                                <div>
+                                    <p>Activity: {e.post_activity}</p>
+                                    <p>Environment: {e.post_env}</p>
+                                    <p>Activity level: {e.post_pal}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Website Link: <a href={e.post_website} >{e.post_website}</a></p>
+                        </div>
+                        <div className='profile-journal-content' >
+                            <p>
+                                {e.post_content}
+                            </p>
+                        </div>
                     </div>
                 )
             })

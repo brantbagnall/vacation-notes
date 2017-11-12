@@ -57,5 +57,10 @@ module.exports= {
         } else {
             return res.status(401).send('You need to log in.');
         }
+    },
+    allBest: function(req, res){
+        return req.app.get('db').find_all_best().then((journals)=> {
+            res.status(200).send(journals);
+        })
     }
 }

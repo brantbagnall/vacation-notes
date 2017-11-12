@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Header from '../Header/Header.js'
 import {getJournal} from '../../ducks/reducer.js';
+import './journal.css';
 
 class Journal extends Component {
 
@@ -14,9 +15,9 @@ class Journal extends Component {
         console.log(this.props.journal[0]);
             var journal = this.props.journal.map((e)=>{
                 return (
-                    <div key={e.post_id} className='' >
-                        <div className='' >
-                            <img src={e.profile_img} alt={`${e.user_name}'s profile art`} className='' />
+                    <div key={e.post_id} className='journal-whole-journal' >
+                        <div className='journal-header' >
+                            <img src={e.profile_img} alt={`${e.user_name}'s profile art`} className='journal-profile-img' />
                             <div>
                                 <p>Username: {e.user_name}</p>
                                 <p>Journal name: {e.post_name}</p>
@@ -42,8 +43,10 @@ class Journal extends Component {
             <div>
                 <Header header='Journal' />
                 <div>
-                    <div>
-                        {journal}
+                    <div className='journal-centerer' >
+                        <div className='journal-centered' >
+                            {journal}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -75,7 +75,9 @@ app.get('/api/findrecent', ctrl.find_recent);
 
 app.get('/api/findbest', ctrl.find_best);
 
-app.get('/api/findjournal/:id', ctrl.findJournal)
+app.get('/api/findjournal/:id', ctrl.findJournal);
+
+app.get('/api/allbest/', ctrl.allBest)
 
 
 

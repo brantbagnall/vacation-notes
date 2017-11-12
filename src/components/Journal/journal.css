@@ -1,0 +1,22 @@
+.journal-centerer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.journal-centered{
+    height: 600px;
+    width: 50%;
+    background: orange;
+}
+.journal-profile-img{
+    height: 100px;
+    width: 100px;
+}
+.journal-whole-journal{
+    display: flex;
+    flex-direction: column;
+}
+.journal-header{
+    display: flex;
+    align-items: center;
+}

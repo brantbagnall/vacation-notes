@@ -5,7 +5,8 @@ const initialState ={
     recent_journal: [],
     bestJournal: [],
     journal: [],
-    allbest: []
+    allBest: [],
+    allRecent: []
 }
 
 const GET_PROFILE = 'GET_PROFILE';
@@ -13,6 +14,7 @@ const GET_RECENT = 'GET_RECENT';
 const GET_BEST = 'GET_BEST';
 const GET_JOURNAL = 'GET_JOURNAL';
 const GET_BEST_FRONT_PAGE = 'GET_BEST_FRONT_PAGE';
+const GET_ALL_RECENT = 'GET_ALL_RECENT';
 
 export function getProfile(){
     const profile = axios.get('/auth/profile').then( res => res.data);
@@ -54,6 +56,14 @@ export function getAllBest(){
     }
 }
 
+export function getAllRecent(){
+    const allRecent = axios.get('/api/allrecent/').then(res => res.data);
+    return {
+        type: GET_ALL_RECENT,
+        payload: allRecent
+    }
+}
+
 export default function reducer (state = initialState, action){
     switch (action.type) {
         case GET_PROFILE + '_FULFILLED':
@@ -75,6 +85,10 @@ export default function reducer (state = initialState, action){
         case GET_BEST_FRONT_PAGE + '_FULFILLED':
 
             return Object.assign({}, state, {allBest: action.payload});
+
+        case GET_ALL_RECENT + '_FULFILLED':
+        
+            return Object.assign({}, state, {allRecent: action.payload});
     
         default:
 

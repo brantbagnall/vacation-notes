@@ -62,5 +62,10 @@ module.exports= {
         return req.app.get('db').find_all_best().then((journals)=> {
             res.status(200).send(journals);
         })
+    },
+    getAllRecent: function(req, res){
+        return req.app.get('db').find_all_recent().then((journals)=> {
+            res.status(200).send(journals);
+        })
     }
 }

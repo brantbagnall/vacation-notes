@@ -4,7 +4,7 @@
 }
 .landing-center {
     background: orange;
-    width: 75%;
+    width: 50%;
     height: 600px;
     display: flex;
     align-items: center;
@@ -12,4 +12,35 @@
 }
 .landing-featured-title {
     align-self: flex-start;
+}
+.landing-centerer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.landing-centered{
+    height: 600px;
+    width: 50%;
+    background: orange;
+}
+.landing-profile-img{
+    height: 100px;
+    width: 100px;
+}
+.landing-whole-journal{
+    display: flex;
+    flex-direction: column;
+}
+.landing-header{
+    display: flex;
+    align-items: center;
+}
+.landing-journals-shown{
+    display: flex;
+}
+.landing-all-best{
+    width: 50%;
+}
+.landing-all-recent{
+    width: 50%;
 }

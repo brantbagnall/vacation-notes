@@ -41,7 +41,7 @@ export function getBest(){
 }
 
 export function getJournal(id){
-    const journal = axios.get('/api/findjournal/' + id).then(res => res.data);
+    const journal = axios.get('/api/findjournal' + id).then(res => res.data);
     return {
         type: GET_JOURNAL,
         payload: journal
@@ -49,7 +49,7 @@ export function getJournal(id){
 }
 
 export function getAllBest(){
-    const allBest = axios.get('/api/allbest/').then(res => res.data);
+    const allBest = axios.get('/api/allbest').then(res => res.data);
     return {
         type: GET_BEST_FRONT_PAGE,
         payload: allBest
@@ -57,7 +57,7 @@ export function getAllBest(){
 }
 
 export function getAllRecent(){
-    const allRecent = axios.get('/api/allrecent/').then(res => res.data);
+    const allRecent = axios.get('/api/allrecent').then(res => res.data);
     return {
         type: GET_ALL_RECENT,
         payload: allRecent

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Header from '../Header/Header.js'
-import {getJournal} from '../../ducks/reducer.js';
+import {getJournal, likePost, dislikePost} from '../../ducks/reducer.js';
 import './journal.css';
 
 class Journal extends Component {
@@ -11,8 +11,16 @@ class Journal extends Component {
         this.props.getJournal(this.props.match.params.id);
     }
 
+    like(){
+        this.props.likePost(this.props.journal[0].post_id);
+    }
+
+    dislike(){
+        this.props.dislikePost(this.props.journal[0].post_id);
+    }
+
     render() {
-        console.log(this.props.journal[0]);
+        // console.log(this.props.journal[0]);
             var journal = this.props.journal.map((e)=>{
                 return (
                     <div key={e.post_id} className='journal-whole-journal' >
@@ -25,7 +33,12 @@ class Journal extends Component {
                                     <p>Activity: {e.post_activity}</p>
                                     <p>Environment: {e.post_env}</p>
                                     <p>Activity level: {e.post_pal}</p>
+                                    <p>Likes: {e.post_likes}</p>
                                 </div>
+                            </div>
+                            <div>
+                                <button onClick={()=> {this.like()} } >Like</button>
+                                <button onClick={()=> {this.dislike()} } >Dislike</button>
                             </div>
                         </div>
                         <div>
@@ -61,4 +74,4 @@ function mapStateToProps(state){
     };
 }
 
-export default connect(mapStateToProps, {getJournal})(Journal);
+export default connect(mapStateToProps, {getJournal, likePost, dislikePost})(Journal);

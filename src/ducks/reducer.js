@@ -17,6 +17,8 @@ const GET_JOURNAL = 'GET_JOURNAL';
 const GET_BEST_FRONT_PAGE = 'GET_BEST_FRONT_PAGE';
 const GET_ALL_RECENT = 'GET_ALL_RECENT';
 const GET_SEARCH = 'GET_SEARCH';
+const DISLIKE = 'DISLIKE';
+const LIKE = 'LIKE';
 
 export function getProfile(){
     const profile = axios.get('/auth/profile').then( res => res.data);
@@ -43,7 +45,7 @@ export function getBest(){
 }
 
 export function getJournal(id){
-    const journal = axios.get('/api/findjournal' + id).then(res => res.data);
+    const journal = axios.get('/api/findjournal/' + id).then(res => res.data);
     return {
         type: GET_JOURNAL,
         payload: journal
@@ -84,7 +86,7 @@ export function getSearch(act, env, actLev, time, keyword){
         time = 'post_time';
     } else if(time !== '13 or more' && time !== 'Any'){
         time = time.split('-');
-        time = time.map(e => parseInt(e));
+        time = time.map(e => parseInt(e, 10));
     }
 
     if(keyword === ''){
@@ -97,6 +99,22 @@ export function getSearch(act, env, actLev, time, keyword){
     return {
         type: GET_SEARCH,
         payload: search
+    }
+}
+
+export function likePost(postId){
+    const like = axios.put('/api/upvote', {postId}).then(res => res.data);
+    return {
+        type: LIKE,
+        payload: like
+    }
+}
+
+export function dislikePost(postId){
+    const dislike = axios.put('/api/downvote', {postId}).then(res => res.data);
+    return {
+        type: DISLIKE,
+        payload: dislike
     }
 }
 
@@ -129,6 +147,14 @@ export default function reducer (state = initialState, action){
         case GET_SEARCH + '_FULFILLED':
         
             return Object.assign({}, state, {search: action.payload});
+            
+        case LIKE + '_FULFILLED':
+        
+            return Object.assign({}, state, {journal: action.payload});
+
+        case DISLIKE + '_FULFILLED':
+        
+            return Object.assign({}, state, {journal: action.payload});
     
         default:
 

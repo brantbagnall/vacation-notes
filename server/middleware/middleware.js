@@ -83,5 +83,23 @@ module.exports= {
                 res.status(200).send(response)
             })
         }
+    },
+    upvote: function(req, res){
+        if(req.user){
+            return req.app.get('db').upvote_journal([req.body.postId]).then((response)=>{
+                res.status(200).send(response);
+            })
+        }else {
+            return res.status(401).send('You need to log in.');
+        }
+    },
+    downvote: function(req, res){
+        if(req.user){
+            return req.app.get('db').downvote_journal([req.body.postId]).then((response)=>{
+                res.status(200).send(response);
+            })
+        }else {
+            return res.status(401).send('You need to log in.');
+        }
     }
 }

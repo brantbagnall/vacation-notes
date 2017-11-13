@@ -83,8 +83,9 @@ app.get('/api/allrecent', ctrl.getAllRecent);
 
 app.put('/api/search', ctrl.getSearch);
 
+app.put('/api/upvote', ctrl.upvote);
 
-
+app.put('/api/downvote', ctrl.downvote);
 
 
 

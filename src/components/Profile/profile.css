@@ -2,7 +2,7 @@
     display: flex;
     width: 50%;
     height: 375px;
-    background: orange;
+    background: #dfdfdf;
 }
 .profile-flex-center{
     display: flex;
@@ -14,12 +14,12 @@
     height: 100%;
 }
 .profile-center-left{
-    background: green;
+    background: #dfdfdf;
     display: flex;
     flex-direction: column;
 }
 .profile-center-right{
-    background: peru;
+    background: #dfdfdf;
 }
 .profile-picture{
     max-height: 200px;
@@ -36,9 +36,8 @@
 .profile-all-recent{
     display: flex;
     width: 50%;
-    height: 600px;
-    background: lightblue;
-    overflow-y: scroll;
+    background: #dfdfdf;
+    overflow-y: auto;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -46,9 +45,9 @@
 .profile-journals-recent{
     display: flex;
     height: 300px;
-    width: 50%;
+    width: 45%;
     flex-direction: column;
-    background: red;
+    margin-left: 20px;
 }
 .profile-profile-img{
     width: 100px;
@@ -71,5 +70,4 @@
     height: 100%;
     width: 100%;
     flex-direction: column;
-    background: red;
 }

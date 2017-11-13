@@ -42,7 +42,7 @@ class Journal extends Component {
                             </div>
                         </div>
                         <div>
-                            <p>Website Link: <a href={e.post_website} >{e.post_website}</a></p>
+                            <p>Website Link: <a href={'http://' + e.post_website} >{e.post_website}</a></p>
                         </div>
                         <div className='' >
                             <p>

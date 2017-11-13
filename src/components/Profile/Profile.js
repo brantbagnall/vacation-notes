@@ -27,11 +27,12 @@ class Profile extends Component {
                                     <p>Activity: {e.post_activity}</p>
                                     <p>Environment: {e.post_env}</p>
                                     <p>Activity level: {e.post_pal}</p>
+                                    <p>Likes: {e.post_likes}</p>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <p>Website Link: <a href={e.post_website} >{e.post_website}</a></p>
+                            <p>Website Link: <a href={'http://' + e.post_website} >{e.post_website}</a></p>
                         </div>
                         <div className='profile-journal-content' >
                             <p>
@@ -53,11 +54,12 @@ class Profile extends Component {
                                     <p>Activity: {e.post_activity}</p>
                                     <p>Environment: {e.post_env}</p>
                                     <p>Activity level: {e.post_pal}</p>
+                                    <p>Likes: {e.post_likes}</p>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <p>Website Link: <a href={e.post_website} >{e.post_website}</a></p>
+                            <p>Website Link: <a href={'http://' + e.post_website} >{e.post_website}</a></p>
                         </div>
                         <div className='profile-journal-content' >
                             <p>

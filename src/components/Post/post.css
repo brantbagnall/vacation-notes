@@ -6,9 +6,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: orange;
+    background: #dfdfdf;
     width: 50%;
-    height: 600px;
+    height: 100vh;
 }
 .post-textarea{
     height: 300px;

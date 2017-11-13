@@ -25,13 +25,14 @@ class Landing extends Component {
                                 <p>Activity: {e.post_activity}</p>
                                 <p>Environment: {e.post_env}</p>
                                 <p>Activity level: {e.post_pal}</p>
+                                <p>Likes: {e.post_likes}</p>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <p>Website Link: <a href={e.post_website} >{e.post_website}</a></p>
+                        <p>Website Link: <a href={'http://' + e.post_website} >{e.post_website}</a></p>
                     </div>
-                    <div className='' >
+                    <div className='landing-post-content' >
                         <p>
                             {e.post_content}
                         </p>
@@ -52,13 +53,14 @@ class Landing extends Component {
                                 <p>Activity: {e.post_activity}</p>
                                 <p>Environment: {e.post_env}</p>
                                 <p>Activity level: {e.post_pal}</p>
+                                <p>Likes: {e.post_likes}</p>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <p>Website Link: <a href={e.post_website} >{e.post_website}</a></p>
+                        <p>Website Link: <a href={'http://' + e.post_website} >{e.post_website}</a></p>
                     </div>
-                    <div className='' >
+                    <div className='landing-post-content' >
                         <p>
                             {e.post_content}
                         </p>
@@ -72,29 +74,31 @@ class Landing extends Component {
                 <Header header='Home' />
                 <div className='landing-flex' >
                     <div className='landing-center' >
-                        <div>
+                        <div className='landing-margin' >
                             <h1>
                                 Adventure Journals
                             </h1>
                         </div>
-                        <div>
+                        <div className='landing-margin'>
                             <h1>
                                 Your adventure is just a click away!
                             </h1>
                         </div>
                         <div className='landing-search' >
-                            <button onClick={()=>{this.props.history.push('/search')}} >Search Journals</button>
+                            <button onClick={()=>{this.props.history.push('/search')}} className='landing-search-button' >Search Journals</button>
                         </div>
-                        <div className='landing-featured-title' >
-                            <h1>
+                        <div>
+                            <h1 className='landing-featured-title landing-margin' >
                                 Featured Journals
                             </h1>
                         </div>
                         <div className='landing-journals-shown' >
                             <div className='landing-all-best' >
+                                <h1 className='landing-featured-title landing-align' >Top Rated</h1>
                                 {allBest}
                             </div>
                             <div className='landing-all-recent' >
+                            <h1 className='landing-featured-title landing-align' >Most Recent</h1>
                                 {allRecent}
                             </div>
                         </div>

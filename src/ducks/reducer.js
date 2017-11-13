@@ -6,7 +6,8 @@ const initialState ={
     bestJournal: [],
     journal: [],
     allBest: [],
-    allRecent: []
+    allRecent: [],
+    search:[]
 }
 
 const GET_PROFILE = 'GET_PROFILE';
@@ -15,6 +16,7 @@ const GET_BEST = 'GET_BEST';
 const GET_JOURNAL = 'GET_JOURNAL';
 const GET_BEST_FRONT_PAGE = 'GET_BEST_FRONT_PAGE';
 const GET_ALL_RECENT = 'GET_ALL_RECENT';
+const GET_SEARCH = 'GET_SEARCH';
 
 export function getProfile(){
     const profile = axios.get('/auth/profile').then( res => res.data);
@@ -64,6 +66,40 @@ export function getAllRecent(){
     }
 }
 
+export function getSearch(act, env, actLev, time, keyword){
+
+    if(act === 'Any'){
+        act = 'post_activity';
+    }
+
+    if(env === 'Any'){
+        env = 'post_env';
+    }
+
+    if(actLev === 'Any'){
+        actLev = 'post_pal';
+    }
+
+    if(time === 'Any'){
+        time = 'post_time';
+    } else if(time !== '13 or more' && time !== 'Any'){
+        time = time.split('-');
+        time = time.map(e => parseInt(e));
+    }
+
+    if(keyword === ''){
+        keyword = 'post_name';
+    }
+
+
+
+    const search = axios.put('/api/search', {act, env, actLev, time, keyword}).then(res => res.data);
+    return {
+        type: GET_SEARCH,
+        payload: search
+    }
+}
+
 export default function reducer (state = initialState, action){
     switch (action.type) {
         case GET_PROFILE + '_FULFILLED':
@@ -89,6 +125,10 @@ export default function reducer (state = initialState, action){
         case GET_ALL_RECENT + '_FULFILLED':
         
             return Object.assign({}, state, {allRecent: action.payload});
+
+        case GET_SEARCH + '_FULFILLED':
+        
+            return Object.assign({}, state, {search: action.payload});
     
         default:
 

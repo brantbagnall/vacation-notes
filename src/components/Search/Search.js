@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Header from '../Header/Header.js';
 import './search.css';
+import {getSearch} from '../../ducks/reducer.js';
 
 class Search extends Component {
+
+    searchJournals(){
+        this.props.getSearch(this.refs.act.value, this.refs.env.value, this.refs.actlev.value, this.refs.time.value, this.refs.keyword.value);
+    }
+
     render() {
         return (
             <div>
@@ -12,7 +18,7 @@ class Search extends Component {
                     <div className='search-centered' >
                         <div className='search-filter' >
                             <div>
-                            Activity: <select onChange={()=>{}} >
+                            Activity: <select ref='act' >
                                     <option>Any</option>
                                     <option>Academic</option>
                                     <option>Art</option>
@@ -35,14 +41,14 @@ class Search extends Component {
                                 </select>
                             </div>
                             <div>
-                            Environment: <select onChange={()=>{}} >
+                            Environment: <select ref='env' >
                                     <option>Any</option>
                                     <option>Indoors</option>
                                     <option>Outdoors</option>
                                 </select>
                             </div>
                             <div>
-                            Activity level: <select onChange={()=>{}} >
+                            Activity level: <select ref='actlev' >
                                     <option>Any</option>
                                     <option>Low</option>
                                     <option>Medium</option>
@@ -50,9 +56,9 @@ class Search extends Component {
                                 </select>
                             </div>
                             <div>
-                                Amount of Time: <select>
+                                Amount of Time: <select ref='time' >
                                     <option>Any</option>
-                                    <option>1-2</option>
+                                    <option>0-2</option>
                                     <option>3-4</option>
                                     <option>5-6</option>
                                     <option>7-8</option>
@@ -63,7 +69,7 @@ class Search extends Component {
                             </div>
                         </div>
                         <div>
-                            <input /> <button onClick={()=>{}} >Search Journals</button>
+                            <input ref='keyword' /> <button onClick={()=>{this.searchJournals()}} >Search Journals</button>
                         </div>
                         <div>
                             Results Go Here
@@ -80,4 +86,4 @@ function mapStateToProps(state){
     return state;
 }
 
-export default connect(mapStateToProps, {})(Search);
+export default connect(mapStateToProps, {getSearch})(Search);

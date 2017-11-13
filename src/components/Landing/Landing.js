@@ -83,7 +83,7 @@ class Landing extends Component {
                             </h1>
                         </div>
                         <div className='landing-search' >
-                            <input ref='search' /> <button onClick={()=>{}} >Search Journals</button>
+                            <button onClick={()=>{this.props.history.push('/search')}} >Search Journals</button>
                         </div>
                         <div className='landing-featured-title' >
                             <h1>

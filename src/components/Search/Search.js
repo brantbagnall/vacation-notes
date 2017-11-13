@@ -12,19 +12,53 @@ class Search extends Component {
                     <div className='search-centered' >
                         <div className='search-filter' >
                             <div>
-                                Price: <select onChange={()=>{}} >
-                                    <option>Free</option>
-
+                            Activity: <select onChange={()=>{}} >
+                                    <option>Any</option>
+                                    <option>Academic</option>
+                                    <option>Art</option>
+                                    <option>Cultural</option>
+                                    <option>Community</option>
+                                    <option>Government</option>
+                                    <option>Leadership</option>
+                                    <option>Media</option>
+                                    <option>Military</option>
+                                    <option>Music</option>
+                                    <option>Religious</option>
+                                    <option>Roleplaying/Fantasy</option>
+                                    <option>Social Activism</option>
+                                    <option>Special Interest</option>
+                                    <option>Political</option>
+                                    <option>Recreation</option>
+                                    <option>Technology</option>
+                                    <option>Travel</option>
+                                    <option>Volunteer</option>
                                 </select>
                             </div>
                             <div>
-                                Age Group: <select onChange={()=>{}} >
+                            Environment: <select onChange={()=>{}} >
                                     <option>Any</option>
+                                    <option>Indoors</option>
+                                    <option>Outdoors</option>
                                 </select>
                             </div>
                             <div>
-                                Amount of Time: <select onChange={()=>{}} >
+                            Activity level: <select onChange={()=>{}} >
                                     <option>Any</option>
+                                    <option>Low</option>
+                                    <option>Medium</option>
+                                    <option>High</option>
+                                </select>
+                            </div>
+                            <div>
+                                Amount of Time: <select>
+                                    <option>Any</option>
+                                    <option>1-2</option>
+                                    <option>3-4</option>
+                                    <option>5-6</option>
+                                    <option>7-8</option>
+                                    <option>9-10</option>
+                                    <option>11-12</option>
+                                    <option>13 or more</option>
                                 </select>
                             </div>
                         </div>

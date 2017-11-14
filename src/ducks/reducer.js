@@ -71,26 +71,28 @@ export function getAllRecent(){
 export function getSearch(act, env, actLev, time, keyword){
 
     if(act === 'Any'){
-        act = 'post_activity';
+        act = '%';
     }
 
     if(env === 'Any'){
-        env = 'post_env';
+        env = '%';
     }
 
     if(actLev === 'Any'){
-        actLev = 'post_pal';
+        actLev = '%';
     }
 
     if(time === 'Any'){
-        time = 'post_time';
+        time = '%';
     } else if(time !== '13 or more' && time !== 'Any'){
         time = time.split('-');
-        time = time.map(e => parseInt(e, 10));
+        console.log(time)
     }
 
     if(keyword === ''){
-        keyword = 'post_name';
+        keyword = '%';
+    } else {
+        keyword = '%' + keyword + '%'
     }
 
 

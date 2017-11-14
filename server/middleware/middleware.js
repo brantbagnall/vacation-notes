@@ -70,16 +70,21 @@ module.exports= {
     },
     getSearch: function(req, res){
 
-        if(req.body.time === 'post_time'){
+        if(req.body.time === '%'){
             return req.app.get('db').journal_search_no_time([req.body.act, req.body.env, req.body.actLev, req.body.keyword]).then((response)=> {
-                console.log(response)
+                // console.log(response)
                 res.status(200).send(response)
             })
-        } else if(req.body.time !== '13 or more'){
-            return req.app.get('db').journal_search([req.body.act, req.body.env, req.body.actLev, req.body.time[0], req.body.time[1], req.body.keyword]).then((response)=> res.status(200).send(response))
+        } else if(req.body.time !== '13 or more' && req.body.time !== '%'){
+            var time1 = req.body.time[0];
+            var time2 = req.body.time[1];
+            return req.app.get('db').journal_search([req.body.act, req.body.env, req.body.actLev, time1, time2, req.body.keyword]).then((response)=> {
+                console.log(response);
+                res.status(200).send(response);
+            })
         } else {
             return req.app.get('db').journal_search_more_time([req.body.act, req.body.env, req.body.actLev, req.body.keyword]).then((response)=> {
-                console.log(response)
+                // console.log(response)
                 res.status(200).send(response)
             })
         }

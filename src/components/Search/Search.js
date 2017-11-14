@@ -7,6 +7,7 @@ import {getSearch} from '../../ducks/reducer.js';
 class Search extends Component {
 
     searchJournals(){
+        console.log(this.refs.time.value);
         this.props.getSearch(this.refs.act.value, this.refs.env.value, this.refs.actlev.value, this.refs.time.value, this.refs.keyword.value);
     }
 
@@ -72,7 +73,7 @@ class Search extends Component {
                             <input ref='keyword' /> <button onClick={()=>{this.searchJournals()}} >Search Journals</button>
                         </div>
                         <div>
-                            Results Go Here
+                            {JSON.stringify(this.props.search)}
                         </div>
                     </div>
                 </div>
@@ -83,7 +84,9 @@ class Search extends Component {
 
 
 function mapStateToProps(state){
-    return state;
+    return {
+        search: state.search
+    };
 }
 
 export default connect(mapStateToProps, {getSearch})(Search);

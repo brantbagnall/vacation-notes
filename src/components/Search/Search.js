@@ -12,6 +12,35 @@ class Search extends Component {
     }
 
     render() {
+
+        var search = this.props.search.map((e)=>{
+            return (
+                <div key={e.post_id} className='search-whole-journal' >
+                    <div className='search-header' >
+                        <img src={e.profile_img} alt={`${e.user_name}'s profile art`} className='search-profile-img' />
+                        <div>
+                            <p>Username: {e.user_name}</p>
+                            <p>Journal name: <a href={`/#/journal/${e.post_id}`} >{e.post_name}</a></p>
+                            <div>
+                                <p>Activity: {e.post_activity}</p>
+                                <p>Environment: {e.post_env}</p>
+                                <p>Activity level: {e.post_pal}</p>
+                                <p>Likes: {e.post_likes}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Website Link: <a href={'http://' + e.post_website} >{e.post_website}</a></p>
+                    </div>
+                    <div className='search-post-content' >
+                        <p>
+                            {e.post_content}
+                        </p>
+                    </div>
+                </div>
+            )
+        })
+
         return (
             <div>
                 <Header header='Search' />
@@ -72,8 +101,8 @@ class Search extends Component {
                         <div>
                             <input ref='keyword' /> <button onClick={()=>{this.searchJournals()}} >Search Journal Titles</button>
                         </div>
-                        <div>
-                            {JSON.stringify(this.props.search)}
+                        <div className='search-all-journals' >
+                            {search}
                         </div>
                     </div>
                 </div>

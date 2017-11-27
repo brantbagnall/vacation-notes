@@ -70,7 +70,7 @@ class Search extends Component {
                             </div>
                         </div>
                         <div>
-                            <input ref='keyword' /> <button onClick={()=>{this.searchJournals()}} >Search Journals</button>
+                            <input ref='keyword' /> <button onClick={()=>{this.searchJournals()}} >Search Journal Titles</button>
                         </div>
                         <div>
                             {JSON.stringify(this.props.search)}

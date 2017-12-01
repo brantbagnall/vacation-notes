@@ -86,7 +86,7 @@ class Search extends Component {
                                 </select>
                             </div>
                             <div>
-                                Amount of Time: <select ref='time' >
+                                Hours to complete: <select ref='time' >
                                     <option>Any</option>
                                     <option>0-2</option>
                                     <option>3-4</option>

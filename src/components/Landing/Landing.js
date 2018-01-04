@@ -20,7 +20,7 @@ class Landing extends Component {
                         <img src={e.profile_img} alt={`${e.user_name}'s profile art`} className='landing-profile-img' />
                         <div>
                             <p>Username: {e.user_name}</p>
-                            <p>Journal name: <a href={`/#/journal/${e.post_id}`} >{e.post_name}</a></p>
+                            <p>Journal name: <a href={`${process.env.REACT_APP_Journal}${e.post_id}`} >{e.post_name}</a></p>
                             <div>
                                 <p>Activity: {e.post_activity}</p>
                                 <p>Environment: {e.post_env}</p>
@@ -48,7 +48,7 @@ class Landing extends Component {
                         <img src={e.profile_img} alt={`${e.user_name}'s profile art`} className='landing-profile-img' />
                         <div>
                             <p>Username: {e.user_name}</p>
-                            <p>Journal name: <a href={`/#/journal/${e.post_id}`} >{e.post_name}</a></p>
+                            <p>Journal name: <a href={`${process.env.REACT_APP_Journal}${e.post_id}`} >{e.post_name}</a></p>
                             <div>
                                 <p>Activity: {e.post_activity}</p>
                                 <p>Environment: {e.post_env}</p>

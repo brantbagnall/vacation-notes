@@ -7,8 +7,8 @@ import './post.css';
 class Post extends Component {
 
     submitJournal(){
-        axios.post('/api/postjournal', {post_name: this.refs.name.value, post_activity: this.refs.aType.value, post_pal: this.refs.pal.value, post_env: this.refs.eType.value, post_content: this.refs.journalContent.value, user_id: this.props.profile.user_id, post_website: this.refs.web.value, post_time: this.refs.time.value, post_lat: 0.0, post_long: 0.0 }).then((id)=> {
-            this.props.history.push('/journal/' + id.data)
+        axios.post(process.env.REACT_APP_POST_JOURNAL, {post_name: this.refs.name.value, post_activity: this.refs.aType.value, post_pal: this.refs.pal.value, post_env: this.refs.eType.value, post_content: this.refs.journalContent.value, user_id: this.props.profile.user_id, post_website: this.refs.web.value, post_time: this.refs.time.value, post_lat: 0.0, post_long: 0.0 }).then((id)=> {
+            this.props.history.push(process.env.REACT_APP_Journal + id.data)
     })
     }
 

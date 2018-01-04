@@ -71,7 +71,7 @@ class Landing extends Component {
 
         return (
             <div>
-                <Header header='Home' />
+                <Header header='Adventure Society Journals' />
                 <div className='landing-flex' >
                     <div className='landing-center' >
                         <div className='landing-margin' >

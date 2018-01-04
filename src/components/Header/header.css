@@ -1,7 +1,7 @@
 .header-main {
     height: 75px;
     width: 100%;
-    background: grey;
+    background: #72BDA3;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -14,7 +14,8 @@ margin: 0 5px;
     display: none;
 }
 .header-title {
-    font-size: 2em;
+    font-size: 3em;
+    font-family: 'Bree Serif', serif; 
 }
 .header-img {
     height: 100%;

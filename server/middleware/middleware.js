@@ -12,7 +12,7 @@ module.exports= {
     },
     editProfile: function (req, res){
         if(req.user){
-            return req.app.get('db').edit_user([req.body.id, req.body.userName]).then(()=> {
+            return req.app.get('db').edit_user([req.body.id, req.body.userName, req.body.imgURL]).then(()=> {
                 console.log('test')
                 res.status(200).send('Works!');
             });

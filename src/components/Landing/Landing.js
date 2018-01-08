@@ -131,7 +131,7 @@ class Landing extends Component {
                                 {allRecent}
                             </div>
                             <div className='landing-all-recent' >
-                            <h1 className='landing-featured-title landing-align' >Most Recent</h1>
+                            <h1 className='landing-featured-title landing-align' >Editors Choice</h1>
                                 {editor}
                             </div>
                         </div>

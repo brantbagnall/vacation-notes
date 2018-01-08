@@ -90,7 +90,7 @@ app.put('/api/downvote', ctrl.downvote);
 app.get('/api/editorschoice', ctrl.editorget);
 
 
-const path = require('path')
+// const path = require('path')
 // app.get('*', (req, res)=>{
 //     res.sendFile(path.join(__dirname, '../build/index.html'));
 // })

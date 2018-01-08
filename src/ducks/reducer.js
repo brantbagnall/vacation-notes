@@ -7,7 +7,8 @@ const initialState ={
     journal: [],
     allBest: [],
     allRecent: [],
-    search:[]
+    search:[],
+    editorsChoice: []
 }
 
 const GET_PROFILE = 'GET_PROFILE';
@@ -19,6 +20,7 @@ const GET_ALL_RECENT = 'GET_ALL_RECENT';
 const GET_SEARCH = 'GET_SEARCH';
 const DISLIKE = 'DISLIKE';
 const LIKE = 'LIKE';
+const EDITOR = 'EDITOR';
 
 export function getProfile(){
     const profile = axios.get('/auth/profile').then( res => res.data);
@@ -86,7 +88,6 @@ export function getSearch(act, env, actLev, time, keyword){
         time = '%';
     } else if(time !== '13 or more' && time !== 'Any'){
         time = time.split('-');
-        console.log(time)
     }
 
     if(keyword === ''){
@@ -117,6 +118,16 @@ export function dislikePost(postId){
     return {
         type: DISLIKE,
         payload: dislike
+    }
+}
+
+export function getEditor(){
+    const editor = axios.get('/api/editorschoice').then(res => {
+        return res.data
+    })
+    return {
+        type: EDITOR,
+        payload: editor
     }
 }
 
@@ -157,6 +168,10 @@ export default function reducer (state = initialState, action){
         case DISLIKE + '_FULFILLED':
         
             return Object.assign({}, state, {journal: action.payload});
+        
+        case EDITOR + '_FULFILLED':
+        
+            return Object.assign({}, state, {editorsChoice: action.payload});
     
         default:
 

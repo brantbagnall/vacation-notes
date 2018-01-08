@@ -106,5 +106,10 @@ module.exports= {
         }else {
             return res.status(401).send('You need to log in.');
         }
+    },
+    editorget: function (req, res){
+        return req.app.get('db').get_editor().then((response)=> {
+            res.status(200).send(response);
+        })
     }
 }

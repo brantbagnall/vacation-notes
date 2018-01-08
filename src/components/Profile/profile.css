@@ -20,6 +20,7 @@
 }
 .profile-center-right{
     background: #dfdfdf;
+    padding-bottom: 10px;
 }
 .profile-picture{
     max-height: 200px;
@@ -34,13 +35,21 @@
     margin-top: 10px;
 }
 .profile-all-recent{
-    display: flex;
     width: 50%;
     background: #dfdfdf;
+}
+.profile-all-recent-flex{
+    display: flex;
     overflow-y: auto;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+}
+.profile-all-recent-text{
+    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+    padding-bottom: 20px;
 }
 .profile-journals-recent{
     display: flex;
@@ -70,4 +79,10 @@
     height: 100%;
     width: 100%;
     flex-direction: column;
+}
+.profile-best-text{
+    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+    padding-bottom: 20px;
 }

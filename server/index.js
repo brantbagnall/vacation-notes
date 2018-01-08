@@ -61,7 +61,7 @@ app.get('/auth/profile', ctrl.authProfile)
 app.get('/auth0', passport.authenticate('auth0'));
 
 app.get('/auth0/callback', passport.authenticate('auth0', {
-    successRedirect: '/#/profile',
+    successRedirect: process.env.AUTH_REDIRECT,
     failureRedirect: '/auth0'
 }))
 
@@ -87,11 +87,12 @@ app.put('/api/upvote', ctrl.upvote);
 
 app.put('/api/downvote', ctrl.downvote);
 
+app.get('/api/editorschoice', ctrl.editorget);
 
 
 const path = require('path')
-app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname, '../build/index.html'));
-})
+// app.get('*', (req, res)=>{
+//     res.sendFile(path.join(__dirname, '../build/index.html'));
+// })
 
 app.listen(port, ()=> console.log('Listening on port: ' + port + ' Unix Time: ' + Date.now()));

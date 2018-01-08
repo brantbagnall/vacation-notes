@@ -94,11 +94,15 @@ class Profile extends Component {
                             </div>
                         </div>
                         <div className='profile-center-buddies profile-center-right' >
+                            <h1 className='profile-best-text' >Your best journal</h1>
                             {bestJournal}
                         </div>
                     </div>
                     <div className='profile-all-recent' >
-                        {recentJournals}
+                        <h1 className='profile-all-recent-text' >your recent journals</h1>
+                        <div className='profile-all-recent-flex' >
+                            {recentJournals}
+                        </div>
                     </div>
                 </div>
             </div>

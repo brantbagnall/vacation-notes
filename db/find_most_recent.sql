@@ -3,4 +3,4 @@ from posts
 join users on users.user_id = posts.users_id
 where users_id = $1
 order by post_unix_time desc
-limit 5;
+limit 4;

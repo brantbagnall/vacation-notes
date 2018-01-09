@@ -25,7 +25,6 @@ module.exports= {
         imgString = imgString.join(',');
         if (req.user) {
             return req.app.get('db').post_journal([req.body.user_id, req.body.post_content, 0, req.body.post_activity, req.body.post_pal, req.body.post_env, req.body.post_time, req.body.post_website, req.body.post_lat, req.body.post_long, Date.now(), req.body.post_name, imgString]).then((id)=> {
-                // console.log(id[0].post_id);
                 res.status(200).send(`${id[0].post_id}`);
             })
         } else {
@@ -33,7 +32,6 @@ module.exports= {
         }
     },
     find_recent: function(req, res){
-        // console.log(req.user);
         if (req.user) {
             return req.app.get('db').find_most_recent([req.user.user_id]).then((posts)=>{
                 res.status(200).send(posts);
@@ -74,7 +72,6 @@ module.exports= {
 
         if(req.body.time === '%'){
             return req.app.get('db').journal_search_no_time([req.body.act, req.body.env, req.body.actLev, req.body.keyword]).then((response)=> {
-                // console.log(response)
                 res.status(200).send(response)
             })
         } else if(req.body.time !== '13 or more' && req.body.time !== '%'){
@@ -86,7 +83,6 @@ module.exports= {
             })
         } else {
             return req.app.get('db').journal_search_more_time([req.body.act, req.body.env, req.body.actLev, req.body.keyword]).then((response)=> {
-                // console.log(response)
                 res.status(200).send(response)
             })
         }

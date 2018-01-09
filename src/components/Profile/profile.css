@@ -2,7 +2,9 @@
     display: flex;
     width: 50%;
     height: 375px;
-    background: #dfdfdf;
+    background: #e6e9d6;
+    justify-content: center;
+    align-items: center;
 }
 .profile-flex-center{
     display: flex;
@@ -14,12 +16,12 @@
     height: 100%;
 }
 .profile-center-left{
-    background: #dfdfdf;
+    background: #e6e9d6;
     display: flex;
     flex-direction: column;
 }
 .profile-center-right{
-    background: #dfdfdf;
+    background: #e6e9d6;
     padding-bottom: 10px;
 }
 .profile-picture{
@@ -36,7 +38,8 @@
 }
 .profile-all-recent{
     width: 50%;
-    background: #dfdfdf;
+    background: #e6e9d6;
+    margin-top: 20px;
 }
 .profile-all-recent-flex{
     display: flex;
@@ -44,12 +47,12 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 20px;
 }
 .profile-all-recent-text{
     text-align: center;
     font-size: 2em;
     font-weight: 700;
-    padding-bottom: 20px;
 }
 .profile-journals-recent{
     display: flex;
@@ -57,6 +60,7 @@
     width: 45%;
     flex-direction: column;
     margin-left: 20px;
+    margin-top: 25px;
 }
 .profile-profile-img{
     width: 100px;
@@ -76,13 +80,20 @@
 }
 .profile-journals-best{
     display: flex;
-    height: 100%;
+    height: 80%;
     width: 100%;
     flex-direction: column;
+    border-bottom: 2px black solid;
 }
 .profile-best-text{
     text-align: center;
     font-size: 2em;
     font-weight: 700;
     padding-bottom: 20px;
+}
+.profile-background{
+    background: #e6e9d6
+}
+.profile-underline{
+    border-bottom: 2px solid black;
 }

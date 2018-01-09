@@ -13,9 +13,10 @@ class Profile extends Component {
     }
 
     render() {
+        console.log(this.props.best)
             var bestJournal = this.props.best.map(e => {
                 return (
-                    <div key={e.post_id} className='profile-journals-best' >
+                    <div key={e.post_id} className='profile-journals-recent' >
                         <div className='profile-journal-header' >
                             <img src={e.profile_img} alt={`${e.user_name}'s profile art`} className='profile-profile-img' />
                             <div>
@@ -36,13 +37,16 @@ class Profile extends Component {
                             <p>
                                 {e.post_content}
                             </p>
+                            <div>
+                                
+                            </div>
                         </div>
                     </div>
                 )
             })
-            var recentJournals = this.props.recent.map(e => {
+            var recentJournals = this.props.recent.map((e, i) => {
                 return (
-                    <div key={e.post_id} className='profile-journals-recent' >
+                    <div key={e.post_id} className={i <= 1 ? 'profile-journals-recent profile-underline' : 'profile-journals-recent'} >
                         <div className='profile-journal-header' >
                             <img src={e.profile_img} alt={`${e.user_name}'s profile art`} className='profile-profile-img' />
                             <div>
@@ -68,11 +72,11 @@ class Profile extends Component {
                 )
             })
         return (
-            <div>
+            <div className='profile-background' >
                 <Header header='Profile' />
                 <div className='profile-flex-center' >
-                    <div className='profile-centered' >
-                        <div className='profile-center-buddies profile-center-left' >
+                    <div className='profile-centered profile-underline' >
+                        <div className='profile-centered' >
                             <div>
                                 <img className='profile-picture' src={this.props.profile.profile_img} alt='You' />
                             </div>
@@ -93,13 +97,15 @@ class Profile extends Component {
                                 </p>
                             </div>
                         </div>
-                        <div className='profile-center-buddies profile-center-right' >
-                            <h1 className='profile-best-text' >Your best journal</h1>
+                    </div>
+                    <div className='profile-all-recent profile-underline' >
+                        <h1 className='profile-all-recent-text' >Your best journals</h1>
+                        <div className='profile-all-recent-flex' >
                             {bestJournal}
                         </div>
                     </div>
                     <div className='profile-all-recent' >
-                        <h1 className='profile-all-recent-text' >your recent journals</h1>
+                        <h1 className='profile-all-recent-text' >Your recent journals</h1>
                         <div className='profile-all-recent-flex' >
                             {recentJournals}
                         </div>

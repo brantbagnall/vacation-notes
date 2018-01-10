@@ -7,8 +7,8 @@
     align-items: center;
 }
 .header-button-enabled {
-color: black;
-margin: 0 5px;
+    color: black;
+    margin: 0 5px;
 }
 .header-button-disabled {
     display: none;
@@ -19,12 +19,17 @@ margin: 0 5px;
     font-family: 'Bree Serif', serif; 
 }
 .header-img {
-    height: 100%;
-    width: 100%;
+    width: 50px;
 }
 .header-pointer :hover {
     cursor: pointer;
 }
 .header-img-width {
-    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background: #6b2d2a;
+    border-radius: 15px;
 }

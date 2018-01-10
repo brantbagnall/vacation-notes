@@ -60,9 +60,11 @@ class Post extends Component {
 
     render() {
         console.log(this.state.imgURLS)
-        var imgDisplay = this.state.imgURLS.map((e)=>{
+        var imgDisplay = this.state.imgURLS.map((e, i)=>{
             return (
-                <img src={e} alt='your upload' />
+                <div key={i + 'post'} >
+                    <a href={e} className='journal-test' ><img className='post-img-height' src={e} alt='your upload' /></a>
+                </div>
             )
         })
         return (
@@ -70,7 +72,7 @@ class Post extends Component {
                 <Header header='New Journal' />
                 <div className='post-centerer' >
                     <div className='post-centered' >
-                    <div>
+                    <div className='post-input-space' >
                         <p>
                             Journal Name: <input ref='name' />
                         </p>
@@ -118,8 +120,11 @@ class Post extends Component {
                         </p>
                         </div>
                         <div>
-                            <p>Journal Story:</p> 
+                            <p className='post-journal' >Journal Story:</p> 
                             <textarea className='post-textarea' ref='journalContent' maxLength='2000' />
+                        </div>
+                        <div className='post-bottom-margin' >
+
                         </div>
                         <div>
                         <Dropzone 
@@ -134,8 +139,14 @@ class Post extends Component {
                         <a>
                             <button onClick={()=> {this.submitJournal()}} >Submit</button>
                         </a>
-                        <div>
+                        <div className='post-bottom-margin' >
+
+                        </div>
+                        <div className='post-images' >
                             {imgDisplay}
+                        </div>
+                        <div className='post-bottom-margin' >
+
                         </div>
                     </div>
                 </div>

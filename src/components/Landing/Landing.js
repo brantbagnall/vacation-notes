@@ -117,21 +117,21 @@ class Landing extends Component {
                             <button onClick={()=>{this.props.history.push('/search')}} className='landing-search-button' >Search Journals</button>
                         </div>
                         <div>
-                            <h1 className='landing-featured-title landing-margin' >
+                            <h1 className='landing-featured-title2' >
                                 Featured Journals
                             </h1>
                         </div>
                         <div className='landing-journals-shown' >
                             <div className='landing-all-best' >
-                                <h1 className='landing-featured-title landing-align' >Top Rated</h1>
+                                <h1 className='landing-featured-title landing-align landing-background-text' >Top Rated</h1>
                                 {allBest}
                             </div>
                             <div className='landing-all-recent' >
-                            <h1 className='landing-featured-title landing-align' >Most Recent</h1>
+                            <h1 className='landing-featured-title landing-align landing-background-text' >Most Recent</h1>
                                 {allRecent}
                             </div>
                             <div className='landing-all-recent' >
-                            <h1 className='landing-featured-title landing-align' >Editors Choice</h1>
+                            <h1 className='landing-featured-title landing-align landing-background-text' >Editors Choice</h1>
                                 {editor}
                             </div>
                         </div>

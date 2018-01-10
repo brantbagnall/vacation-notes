@@ -18,7 +18,7 @@ class Search extends Component {
                 <div key={e.post_id} className='search-whole-journal' >
                     <div className='search-header' >
                         <img src={e.profile_img} alt={`${e.user_name}'s profile art`} className='search-profile-img' />
-                        <div>
+                        <div className='search-description' >
                             <p>Username: {e.user_name}</p>
                             <p>Journal name: <a href={`${process.env.REACT_APP_Journal}${e.post_id}`} >{e.post_name}</a></p>
                             <div>
@@ -42,7 +42,7 @@ class Search extends Component {
         })
 
         return (
-            <div>
+            <div className='search-background' >
                 <Header header='Search' />
                 <div className='search-center' >
                     <div className='search-centered' >
@@ -98,7 +98,7 @@ class Search extends Component {
                                 </select>
                             </div>
                         </div>
-                        <div>
+                        <div className='search-input-button' >
                             <input ref='keyword' /> <button onClick={()=>{this.searchJournals()}} >Search Journal Titles</button>
                         </div>
                         <div className='search-all-journals' >

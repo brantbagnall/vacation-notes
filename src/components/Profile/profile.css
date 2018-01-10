@@ -65,7 +65,7 @@
 .profile-profile-img{
     width: 100px;
     height: 100px;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 .profile-journal-header{
     display: flex;
@@ -92,7 +92,8 @@
     padding-bottom: 20px;
 }
 .profile-background{
-    background: #e6e9d6
+    background: #e6e9d6;
+    height: 100vh;
 }
 .profile-underline{
     border-bottom: 2px solid black;

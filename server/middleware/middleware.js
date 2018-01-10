@@ -24,7 +24,7 @@ module.exports= {
     postJournal: function (req, res) {
         console.log(req.body)
         if (req.user) {
-            console.log('hey')
+            // console.log('hey')
             return req.app.get('db').post_journal([req.body.user_id, req.body.post_content, 0, req.body.post_activity, req.body.post_pal, req.body.post_env, req.body.post_time, req.body.post_website, req.body.post_lat, req.body.post_long, Date.now(), req.body.post_name, req.body.imgs]).then((id)=> {
                 res.status(200).send(`${id[0].post_id}`);
             })

@@ -6,11 +6,11 @@
 .journal-centered{
     height: 600px;
     width: 50%;
-    background: orange;
 }
 .journal-profile-img{
     height: 100px;
     width: 100px;
+    border-radius: 50%;
 }
 .journal-whole-journal{
     display: flex;
@@ -34,4 +34,13 @@
 }
 .journal-test:hover{
     cursor: pointer;
+}
+.journal-title-spacing p{
+    margin-left: 20px;
+}
+.journal-website-link{
+    margin: 20px 0;
+}
+.journal-content-margin{
+    margin-bottom: 30px;
 }

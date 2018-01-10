@@ -31,7 +31,7 @@ class Journal extends Component {
     }
 
     render() {
-        console.log(this.props.journal[0])
+        // console.log(this.props.journal[0])
         var buttons = (<div></div>)
         var doneAlready = false;
         var likedSplit, dislikedSplit;
@@ -47,7 +47,7 @@ class Journal extends Component {
                 }
                 if(this.props.journal[0].post_disliked != null){
                     dislikedSplit = this.props.journal[0].post_disliked.split(' ');
-                    console.log('dislikedSplit',dislikedSplit)
+                    // console.log('dislikedSplit',dislikedSplit)
                     if(dislikedSplit.includes(`${this.props.user.user_id}`)){
                         doneAlready = true;
                     }
@@ -62,7 +62,7 @@ class Journal extends Component {
                     )
                 }
         }
-        console.log('User', this.props.user);
+        // console.log('User', this.props.user);
             var journal = this.props.journal.map((e)=>{
                 var pics = e.post_imgs.split(' ');
                 var allPics = pics.map((e, i)=> {
@@ -76,7 +76,7 @@ class Journal extends Component {
                     <div key={e.post_id} className='journal-whole-journal' >
                         <div className='journal-header' >
                             <img src={e.profile_img} alt={`${e.user_name}'s profile art`} className='journal-profile-img' />
-                            <div>
+                            <div className='journal-title-spacing' >
                                 <p>Username: {e.user_name}</p>
                                 <p>Journal name: {e.post_name}</p>
                                 <div>
@@ -88,11 +88,11 @@ class Journal extends Component {
                             </div>
                             {buttons}
                         </div>
-                        <div>
+                        <div className='journal-website-link' >
                             <p>Website Link: <a href={'http://' + e.post_website} >{e.post_website}</a></p>
                         </div>
-                        <div className='' >
-                            <p>
+                        <div>
+                            <p className='journal-content-margin' >
                                 {e.post_content}
                             </p>
                             <div className='journal-pic-flex' >

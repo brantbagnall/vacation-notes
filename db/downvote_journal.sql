@@ -1,4 +1,4 @@
-update posts set post_likes = post_likes - 1
+update posts set post_likes = post_likes - 1, post_disliked = $2
 where post_id = $1;
 select posts.*, users.user_name, users.profile_img
 from posts

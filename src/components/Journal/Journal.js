@@ -9,19 +9,69 @@ class Journal extends Component {
     componentDidMount(){
         // console.log(this.props.match.params.id);
         this.props.getJournal(this.props.match.params.id);
+        // console.log(this.props.user)
     }
 
     like(){
-        this.props.likePost(this.props.journal[0].post_id);
+        if(this.props.journal[0].post_liked == null){
+            this.props.likePost(this.props.journal[0].post_id, this.props.user.user_id);
+        } else {
+            var user_ids = this.props.journal[0].post_liked;
+            user_ids = user_ids.split(' ');
+            if(!user_ids.includes(`${this.props.user.user_id}`)){
+                user_ids.push(`${this.props.user.user_id}`);
+                user_ids = user_ids.join(' ');
+                this.props.likePost(this.props.journal[0].post_id, user_ids);
+            }
+        }
     }
 
     dislike(){
-        this.props.dislikePost(this.props.journal[0].post_id);
+        this.props.dislikePost(this.props.journal[0].post_id, this.props.user.user_id);
     }
 
     render() {
-        // console.log(this.props.journal[0]);
+        console.log(this.props.journal[0])
+        var buttons = (<div></div>)
+        var doneAlready = false;
+        var likedSplit, dislikedSplit;
+        if(this.props.journal[0] !== undefined){
+            if(this.props.journal[0].post_liked == null && this.props.journal[0].post_disliked == null){
+                doneAlready = false;
+            }else {
+                if(this.props.journal[0].post_liked != null){
+                    likedSplit = this.props.journal[0].post_liked.split(' ');
+                    if(likedSplit.includes(`${this.props.user.user_id}`)){
+                        doneAlready = true;
+                    }
+                }
+                if(this.props.journal[0].post_disliked != null){
+                    dislikedSplit = this.props.journal[0].post_disliked.split(' ');
+                    console.log('dislikedSplit',dislikedSplit)
+                    if(dislikedSplit.includes(`${this.props.user.user_id}`)){
+                        doneAlready = true;
+                    }
+                }
+            }
+                if (!doneAlready){
+                    buttons = (
+                        <div style={this.props.user.user_id ? {display: 'inline'} : {display: 'none'}} >
+                            <button onClick={()=> {this.like()} } >Like</button>
+                            <button onClick={()=> {this.dislike()} } >Dislike</button>
+                        </div>
+                    )
+                }
+        }
+        console.log('User', this.props.user);
             var journal = this.props.journal.map((e)=>{
+                var pics = e.post_imgs.split(' ');
+                var allPics = pics.map((e, i)=> {
+                    return (
+                    <div key={i + 'pic'} >
+                        <a href={e} className='journal-test' ><img src={e} alt='vacation!' className='journal-pic-styles' /></a>
+                    </div>
+                    )
+                })
                 return (
                     <div key={e.post_id} className='journal-whole-journal' >
                         <div className='journal-header' >
@@ -36,10 +86,7 @@ class Journal extends Component {
                                     <p>Likes: {e.post_likes}</p>
                                 </div>
                             </div>
-                            <div>
-                                <button onClick={()=> {this.like()} } >Like</button>
-                                <button onClick={()=> {this.dislike()} } >Dislike</button>
-                            </div>
+                            {buttons}
                         </div>
                         <div>
                             <p>Website Link: <a href={'http://' + e.post_website} >{e.post_website}</a></p>
@@ -48,6 +95,9 @@ class Journal extends Component {
                             <p>
                                 {e.post_content}
                             </p>
+                            <div className='journal-pic-flex' >
+                                {allPics}
+                            </div>
                         </div>
                     </div>
                 )
@@ -70,7 +120,8 @@ class Journal extends Component {
 
 function mapStateToProps(state){
     return {
-        journal: state.journal
+        journal: state.journal,
+        user: state.profile
     };
 }
 

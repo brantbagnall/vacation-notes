@@ -17,10 +17,10 @@ class Post extends Component {
     submitJournal(){
 
         var imgsString = [...this.state.imgURLS]
-        imgsString = imgsString.join(',');
-
-        axios.post(process.env.REACT_APP_POST_JOURNAL, {post_name: this.refs.name.value, post_activity: this.refs.aType.value, post_pal: this.refs.pal.value, post_env: this.refs.eType.value, post_content: this.refs.journalContent.value, user_id: this.props.profile.user_id, post_website: this.refs.web.value, post_time: this.refs.time.value, post_lat: 0.0, post_long: 0.0, imgs: imgsString }).then((id)=> {
-            this.props.history.push(process.env.REACT_APP_Journal + id.data)
+        imgsString = imgsString.join(' ');
+        console.log(imgsString)
+        axios.post('/api/postjournal', {post_name: this.refs.name.value, post_activity: this.refs.aType.value, post_pal: this.refs.pal.value, post_env: this.refs.eType.value, post_content: this.refs.journalContent.value, user_id: this.props.profile.user_id, post_website: this.refs.web.value, post_time: this.refs.time.value, post_lat: 0.0, post_long: 0.0, imgs: imgsString }).then((id)=> {
+            this.props.history.push('/journal/' + id.data, null)
     })
     }
 
@@ -40,10 +40,10 @@ class Post extends Component {
                 headers: { "X-Requested-With": "XMLHttpRequest" },
             }).then(response => {
                 const data = response.data;
-                const fileURL = data.secure_url // You should store this URL for future references in your app
+                // console.log(data)
+                const fileURL = data.url // You should store this URL for future references in your app
                 var arr = [...this.state.imgURLS];
                 arr.push(fileURL)
-                console.log(fileURL)
                 this.setState({
                     imgURLS: arr
                 })
@@ -98,16 +98,16 @@ class Post extends Component {
                             </select>
                             </p>
                             <p>
-                            Physical Activity Level: <select ref='pal' >
+                            Physical Activity Level: <select defaultValue='Medium' ref='pal' >
                                 <option>Low</option>
-                                <option selected >Medium</option>
+                                <option>Medium</option>
                                 <option>High</option>
                             </select>
                             </p>
                             <p>
-                            Envirnment: <select ref='eType' >
+                            Envirnment: <select defaultValue='Outdoors' ref='eType' >
                                 <option>Indoors</option>
-                                <option selected >Outdoors</option>
+                                <option>Outdoors</option>
                             </select>
                         </p>
                         <p>
@@ -117,11 +117,11 @@ class Post extends Component {
                             Related Website: <input ref='web' />
                         </p>
                         </div>
-                        <p>
+                        <div>
                             <p>Journal Story:</p> 
                             <textarea className='post-textarea' ref='journalContent' maxLength='2000' />
-                        </p>
-                        <p>
+                        </div>
+                        <div>
                         <Dropzone 
                             onDrop={this.handleDrop}  
                             accept="image/*"
@@ -130,11 +130,13 @@ class Post extends Component {
                                 >
                             <p>Drop your files or click here to upload images</p>
                         </Dropzone>
-                        </p>
+                        </div>
+                        <a>
+                            <button onClick={()=> {this.submitJournal()}} >Submit</button>
+                        </a>
                         <div>
                             {imgDisplay}
                         </div>
-                        <button onClick={()=> {this.submitJournal()}} >Submit</button>
                     </div>
                 </div>
             </div>

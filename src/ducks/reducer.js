@@ -105,16 +105,16 @@ export function getSearch(act, env, actLev, time, keyword){
     }
 }
 
-export function likePost(postId){
-    const like = axios.put('/api/upvote', {postId}).then(res => res.data);
+export function likePost(postId, user_id){
+    const like = axios.put('/api/upvote', {postId, user_id}).then(res => res.data);
     return {
         type: LIKE,
         payload: like
     }
 }
 
-export function dislikePost(postId){
-    const dislike = axios.put('/api/downvote', {postId}).then(res => res.data);
+export function dislikePost(postId, user_id){
+    const dislike = axios.put('/api/downvote', {postId, user_id}).then(res => res.data);
     return {
         type: DISLIKE,
         payload: dislike

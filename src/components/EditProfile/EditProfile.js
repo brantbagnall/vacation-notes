@@ -52,11 +52,23 @@ class EditProfile extends Component {
                 headers: { "X-Requested-With": "XMLHttpRequest" },
             }).then(response => {
                 const data = response.data;
-                const fileURL = data.secure_url // You should store this URL for future references in your app
+                var fileURL = data.secure_url; // You should store this URL for future references in your app
+                fileURL = fileURL.split("/");
+                for (var i = 0; i < fileURL.length; ++i) {
+                    if (fileURL[i] === "upload") {
+                    fileURL.splice(i + 1, 0, "w_200,h_200,c_fill");
+                    fileURL = fileURL.join("/");
+                    this.setState({
+                        coverURL: fileURL
+                    });
+                    i = fileURL.length;
+                    }
+                }
                 this.setState({
                     imgURL: fileURL
                 })
                 console.log(data);
+                alert('done');
             })
             });
         
@@ -76,7 +88,7 @@ class EditProfile extends Component {
                         <div className='editprofile-center-buddies editprofile-center-left' >
                             <div>
                                 <img className='editprofile-picture' src={this.props.profile.profile_img} alt='You' />
-                                <p>
+                                <div>
                                 <Dropzone 
                                     onDrop={this.handleDrop}  
                                     accept="image/*" 
@@ -84,7 +96,7 @@ class EditProfile extends Component {
                                         >
                                     <p>Drop your files or click here to upload</p>
                                 </Dropzone>
-                                </p>
+                                </div>
                             </div>
                             <div className='editprofile-text' >
                                 <p className='editprofile-individual-text' >

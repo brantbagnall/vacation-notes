@@ -20,3 +20,18 @@
     display: flex;
     align-items: center;
 }
+.journal-pic-styles{
+    height: 200px;
+    padding: 0 10px;
+}
+.journal-pic-flex{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    width: 100%;
+    overflow-x: scroll;
+    margin-top: 10px;
+}
+.journal-test:hover{
+    cursor: pointer;
+}

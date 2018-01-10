@@ -1,0 +1,244 @@
+{
+	"info": {
+		"name": "Vacation Notes",
+		"_postman_id": "03ec4ecf-4738-78b4-a9b5-b9a799d689df",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get allbest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f56e21b3-7f46-47c5-abb3-5734dc7d17a1",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"pm.test('test for status 200', function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"",
+							"pm.test('test body exists', function(){",
+							"    pm.response.to.have.body",
+							"})",
+							"",
+							"pm.test('test that body is an array', function(){",
+							"    var bodyTypeTest = false;",
+							"    if(jsonData.constructor === Array){",
+							"        bodyTypeTest = true;",
+							"    }",
+							"    pm.expect(bodyTypeTest).to.eql(true)",
+							"})",
+							"",
+							"pm.test('test that body contains an array whith one object', function(){",
+							"    var bodyTypeTest = false;",
+							"    var lengthIsGood = false;",
+							"    if(jsonData[0].constructor === Object){",
+							"        bodyTypeTest = true;",
+							"    }",
+							"    ",
+							"    if(jsonData.length === 4){",
+							"        lengthIsGood = true",
+							"    }",
+							"    ",
+							"    pm.expect(bodyTypeTest && lengthIsGood).to.eql(true)",
+							"})",
+							"",
+							"pm.test('object contains 17 of the correct keys', function(){",
+							"    var keyLength = false,",
+							"        correctKeys = true;",
+							"    ",
+							"    if(Object.keys(jsonData[0]).length === 17){",
+							"        keyLength = true;",
+							"    }",
+							"    for(let key in jsonData[0]){",
+							"        if (!['post_id', 'users_id', 'post_content', 'post_likes', 'post_activity', 'post_pal', 'post_env', 'post_time', 'post_website', 'post_lat', 'post_long', 'post_unix_time', 'post_name', 'editors_choice', 'post_imgs', 'user_name', 'profile_img'].includes(key)){",
+							"            correctKeys = false;",
+							"        }",
+							"    }",
+							"    pm.expect(keyLength && correctKeys).to.eql(true)",
+							"})"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3005/api/allbest",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"api",
+						"allbest"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get allrecent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "079e688a-9244-443b-9f3f-08ef486e72ac",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"pm.test('test for status 200', function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"",
+							"pm.test('test body exists', function(){",
+							"    pm.response.to.have.body",
+							"})",
+							"",
+							"pm.test('test that body is an array', function(){",
+							"    var bodyTypeTest = false;",
+							"    if(jsonData.constructor === Array){",
+							"        bodyTypeTest = true;",
+							"    }",
+							"    pm.expect(bodyTypeTest).to.eql(true)",
+							"})",
+							"",
+							"pm.test('test that body contains an array whith 4 objects', function(){",
+							"    var bodyTypeTest = false;",
+							"    var lengthIsGood = false;",
+							"    if(jsonData[0].constructor === Object){",
+							"        bodyTypeTest = true;",
+							"    }",
+							"    ",
+							"    if(jsonData.length === 4){",
+							"        lengthIsGood = true",
+							"    }",
+							"    ",
+							"    pm.expect(bodyTypeTest && lengthIsGood).to.eql(true)",
+							"})",
+							"",
+							"pm.test('object contains 17 of the correct keys', function(){",
+							"    var keyLength = false,",
+							"        correctKeys = true;",
+							"    ",
+							"    if(Object.keys(jsonData[0]).length === 17){",
+							"        keyLength = true;",
+							"    }",
+							"    for(let key in jsonData[0]){",
+							"        if (!['post_id', 'users_id', 'post_content', 'post_likes', 'post_activity', 'post_pal', 'post_env', 'post_time', 'post_website', 'post_lat', 'post_long', 'post_unix_time', 'post_name', 'editors_choice', 'post_imgs', 'user_name', 'profile_img'].includes(key)){",
+							"            correctKeys = false;",
+							"        }",
+							"    }",
+							"    pm.expect(keyLength && correctKeys).to.eql(true)",
+							"})"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3005/api/allrecent",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"api",
+						"allrecent"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get editorschoice",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "079e688a-9244-443b-9f3f-08ef486e72ac",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"pm.test('test for status 200', function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"",
+							"pm.test('test body exists', function(){",
+							"    pm.response.to.have.body",
+							"})",
+							"",
+							"pm.test('test that body is an array', function(){",
+							"    var bodyTypeTest = false;",
+							"    if(jsonData.constructor === Array){",
+							"        bodyTypeTest = true;",
+							"    }",
+							"    pm.expect(bodyTypeTest).to.eql(true)",
+							"})",
+							"",
+							"pm.test('test that body contains an array whith 4 objects', function(){",
+							"    var bodyTypeTest = false;",
+							"    var lengthIsGood = false;",
+							"    if(jsonData[0].constructor === Object){",
+							"        bodyTypeTest = true;",
+							"    }",
+							"    ",
+							"    if(jsonData.length === 4){",
+							"        lengthIsGood = true",
+							"    }",
+							"    ",
+							"    pm.expect(bodyTypeTest && lengthIsGood).to.eql(true)",
+							"})",
+							"",
+							"pm.test('object contains 17 of the correct keys', function(){",
+							"    var keyLength = false,",
+							"        correctKeys = true;",
+							"    ",
+							"    if(Object.keys(jsonData[0]).length === 17){",
+							"        keyLength = true;",
+							"    }",
+							"    for(let key in jsonData[0]){",
+							"        if (!['post_id', 'users_id', 'post_content', 'post_likes', 'post_activity', 'post_pal', 'post_env', 'post_time', 'post_website', 'post_lat', 'post_long', 'post_unix_time', 'post_name', 'editors_choice', 'post_imgs', 'user_name', 'profile_img'].includes(key)){",
+							"            correctKeys = false;",
+							"        }",
+							"    }",
+							"    pm.expect(keyLength && correctKeys).to.eql(true)",
+							"})"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3005/api/editorschoice",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"api",
+						"editorschoice"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

@@ -80,43 +80,53 @@ class EditProfile extends Component {
         }
 
     render() {
+        var newPic = (
+            <div>
+
+            </div>
+        )
+        if(this.state.imgURL){
+            newPic = (
+                <img className='editprofile-border' src={this.state.imgURL} alt='public profile' />
+            )
+        }
         return (
             <div>
-                <Header header='Edit Profile' />
+                <Header centerProp='editprofile-center-header' header='Edit Profile' />
                 <div className='editprofile-flex-center' >
                     <div className='editprofile-centered' >
-                        <div className='editprofile-center-buddies editprofile-center-left' >
+                        <div className='editprofile-center-buddies' >
                             <div>
                                 <img className='editprofile-picture' src={this.props.profile.profile_img} alt='You' />
+                            </div>
+                            <div className='editprofile-text editprofile-centerer' >
                                 <div>
+                                    <p className='editprofile-individual-text' >
+                                        Full Name (private): {this.props.profile.first_name} {this.props.profile.last_name}
+                                    </p>
+                                    <p className='editprofile-individual-text' >
+                                        User Name (public): <input ref='userName' placeholder={this.props.profile.user_name} />
+                                    </p>
+                                    <p className='editprofile-individual-text' >
+                                        Email (private): {this.props.profile.email}
+                                    </p>
+                                </div>
+                                <div className='editprofile-margin' >
                                 <Dropzone 
                                     onDrop={this.handleDrop}  
                                     accept="image/*" 
                                     // style={styles.dropzone}
                                         >
-                                    <p>Drop your files or click here to upload</p>
+                                    <p className='editprofile-over-pic' >Drop your file or click here to upload</p>
+                                    {newPic}
                                 </Dropzone>
                                 </div>
-                            </div>
-                            <div className='editprofile-text' >
-                                <p className='editprofile-individual-text' >
-                                    Full Name (private): {this.props.profile.first_name} {this.props.profile.last_name}
-                                </p>
-                                <p className='editprofile-individual-text' >
-                                    User Name (public): <input ref='userName' placeholder={this.props.profile.user_name} />
-                                </p>
-                                <p className='editprofile-individual-text' >
-                                    Email (private): {this.props.profile.email}
-                                </p>
-                                <p>
+                                <p className='editprofile-margin' >
                                     <a>
                                         <button onClick={()=> {this.submitEdit()} } >Submit</button>
                                     </a>
                                 </p>
                             </div>
-                        </div>
-                        <div className='editprofile-center-buddies editprofile-center-right' >
-                            test2
                         </div>
                     </div>
                     <div>

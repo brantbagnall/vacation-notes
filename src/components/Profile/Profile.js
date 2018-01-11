@@ -46,7 +46,7 @@ class Profile extends Component {
             })
             var recentJournals = this.props.recent.map((e, i) => {
                 return (
-                    <div key={e.post_id} className={i <= 1 ? 'profile-journals-recent profile-underline' : 'profile-journals-recent'} >
+                    <div key={e.post_id} className={i <= 1 ? 'profile-journals-recent' : 'profile-journals-recent'} >
                         <div className='profile-journal-header' >
                             <img src={e.profile_img} alt={`${e.user_name}'s profile art`} className='profile-profile-img' />
                             <div>
@@ -75,7 +75,7 @@ class Profile extends Component {
             <div className='profile-background' >
                 <Header header='Profile' />
                 <div className='profile-flex-center' >
-                    <div className='profile-centered profile-underline' >
+                    <div className='profile-centered' >
                         <div className='profile-centered' >
                             <div>
                                 <img className='profile-picture' src={this.props.profile.profile_img} alt='You' />
@@ -98,7 +98,7 @@ class Profile extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className='profile-all-recent profile-underline' >
+                    <div className='profile-all-recent' >
                         <h1 className='profile-all-recent-text' >Your best journals</h1>
                         <div className='profile-all-recent-flex' >
                             {bestJournal}

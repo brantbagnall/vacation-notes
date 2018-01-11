@@ -5,12 +5,16 @@ import './header.css';
 
 class Header extends Component {
     render(props) {
+        var centerThing = '';
+        if(this.props.centerProp){
+            centerThing = this.props.centerProp;
+        }
         return (
             <div className='header-main' >
                 <div className='header-pointer header-img-width' >
                     <a href={process.env.REACT_APP_Home} ><img onClick={()=> {}} className='header-img' src={suitcase} alt='Site Logo' /></a>
                 </div>
-                <div className='header-title' >
+                <div className={`header-title ${centerThing}`} >
                     {this.props.header}
                 </div>
                 <div>
